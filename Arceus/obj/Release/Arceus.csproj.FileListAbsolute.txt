@@ -1,0 +1,13 @@
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\bin\Release\Arceus.exe
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\bin\Release\Arceus.pdb
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\bin\Release\CircularProgressBar.dll
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\bin\Release\WinFormAnimation.dll
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\bin\Release\CircularProgressBar.xml
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\bin\Release\WinFormAnimation.xml
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Release\Arceus.Form1.resources
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Release\Arceus.Properties.Resources.resources
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Release\Arceus.csproj.GenerateResource.Cache
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Release\Arceus.csproj.CoreCompileInputs.cache
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Release\Arceus.exe
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Release\Arceus.pdb
+D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Release\Arceus.csprojResolveAssemblyReference.cache
