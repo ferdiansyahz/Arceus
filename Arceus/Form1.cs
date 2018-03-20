@@ -14,7 +14,7 @@ namespace Arceus
     public partial class Form1 : Form
     {
         static SerialPort serial1 = new SerialPort();
-        
+        public int hex;
         public Form1()
         {
             InitializeComponent();
@@ -45,12 +45,16 @@ namespace Arceus
         {
             string x = serial1.ReadLine();
             //string y = serial1.ReadLine();
-            
-            this.BeginInvoke(new LineReceivedEvent(LineReceived), x);
+            hex += 1;
+            if(hex > 51)
+            {
+                hex = 1;
+            }
+            this.BeginInvoke(new LineReceivedEvent(LineReceived), x, hex);
             this.BeginInvoke(new LineReceivedEvent1(recsv), x);
         }
 
-        private delegate void LineReceivedEvent(string x);
+        private delegate void LineReceivedEvent(string x, int hex);
         private delegate void LineReceivedEvent1(string x);
 
         private void recsv(string x)
@@ -60,24 +64,45 @@ namespace Arceus
             string loc = ".csv";
             string csvpath = quer + textBox2.Text + loc;
 
-            var newline = String.Format("{0},{1},{2},{3}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x, System.Environment.NewLine);
-
+            //var newline = String.Format("{0},{1},{2},{3}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x, System.Environment.NewLine);
+            var newline = String.Format("{0},{1},{2}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x);
             csvcontent.Append(newline);
 
             System.IO.File.AppendAllText(csvpath, csvcontent.ToString());
         }
 
-        private void LineReceived(string x)
+        private void LineReceived(string x, int hex)
         {
             //float x1 = float.Parse(x);
             //float y1 = float.Parse(y);
             //x3 = x1 / 10;
+           
             int x2 = Convert.ToInt32(x) / 10;
-            textBox1.Text = x;
-            circularProgressBar1.Value = x2;
-            circularProgressBar1.Text = x2.ToString() + "%";
-            circularProgressBar1.SubscriptText = x;
-            chart1.Series["Force"].Points.AddY(x2);
+            if (x2 < 20)
+            {
+                textBox1.Text = x;
+                circularProgressBar1.Value = 0;
+                circularProgressBar1.Text = "0" + "%";
+                circularProgressBar1.SubscriptText = x;
+                chart1.Series["Force"].Points.AddY(x2);
+            }
+            //int x2 = int.Parse(x) / 10;
+            else
+            {
+                textBox1.Text = x;
+                circularProgressBar1.Value = x2;
+                circularProgressBar1.Text = x2.ToString() + "%";
+                circularProgressBar1.SubscriptText = x;
+                chart1.Series["Force"].Points.AddY(x2);
+            }
+            if (hex > 50)
+            {
+
+                foreach (var series in chart1.Series)
+                {
+                    series.Points.Clear();
+                }
+            }
         }
 
 
@@ -183,6 +208,11 @@ namespace Arceus
             this.Close();
             System.Windows.Forms.Application.Exit();
             System.Environment.Exit(1);
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 
