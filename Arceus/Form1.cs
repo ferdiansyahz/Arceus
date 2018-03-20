@@ -46,11 +46,12 @@ namespace Arceus
             string x = serial1.ReadLine();
             //string y = serial1.ReadLine();
             hex += 1;
+
             if(hex>51)
             {
                 hex = 1;
             }
-            
+
             this.BeginInvoke(new LineReceivedEvent(LineReceived), x, hex);
             this.BeginInvoke(new LineReceivedEvent1(recsv), x);
         }
@@ -65,8 +66,8 @@ namespace Arceus
             string loc = ".csv";
             string csvpath = quer + textBox2.Text + loc;
 
-            var newline = String.Format("{0},{1},{2},{3}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x, System.Environment.NewLine);
-
+            //var newline = String.Format("{0},{1},{2},{3}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x, System.Environment.NewLine);
+            var newline = String.Format("{0},{1},{2}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x);
             csvcontent.Append(newline);
 
             System.IO.File.AppendAllText(csvpath, csvcontent.ToString());
@@ -77,8 +78,11 @@ namespace Arceus
             //float x1 = float.Parse(x);
             //float y1 = float.Parse(y);
             //x3 = x1 / 10;
+           
             int x2 = Convert.ToInt32(x) / 10;
-            if (x2 <= 20)
+
+            if (x2 < 20)
+
             {
                 textBox1.Text = x;
                 circularProgressBar1.Value = 0;
@@ -86,7 +90,10 @@ namespace Arceus
                 circularProgressBar1.SubscriptText = x;
                 chart1.Series["Force"].Points.AddY(x2);
             }
-            else if(x2 > 20)
+
+
+            else
+
             {
                 textBox1.Text = x;
                 circularProgressBar1.Value = x2;
@@ -96,7 +103,13 @@ namespace Arceus
             }
             if (hex > 50)
             {
-                chart1.Series.Clear();
+                
+
+                foreach (var series in chart1.Series)
+                {
+                    series.Points.Clear();
+                }
+
             }
         }
 
@@ -203,6 +216,11 @@ namespace Arceus
             this.Close();
             System.Windows.Forms.Application.Exit();
             System.Environment.Exit(1);
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 

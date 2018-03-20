@@ -12,3 +12,17 @@ D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arce
 D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Debug\Arceus.exe
 D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Debug\Arceus.pdb
 D:\Matkul Mesin\Semester 8\Seminar dan Skripsi\Visual Studio\Bubbles\Arceus\Arceus\Arceus\obj\Debug\Arceus.Form2.resources
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\bin\Debug\Arceus.exe
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\bin\Debug\Arceus.pdb
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\bin\Debug\CircularProgressBar.dll
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\bin\Debug\WinFormAnimation.dll
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\bin\Debug\CircularProgressBar.xml
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\bin\Debug\WinFormAnimation.xml
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.csprojResolveAssemblyReference.cache
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.Form1.resources
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.Form2.resources
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.Properties.Resources.resources
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.csproj.GenerateResource.Cache
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.csproj.CoreCompileInputs.cache
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.exe
+E:\UI\Semester 7\Skripsi\MyoWare_MuscleSensor-master\Arceus\Arceus\obj\Debug\Arceus.pdb
