@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.IO.Ports;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.IO.Ports;
 
 namespace Arceus
 {
     public partial class Form1 : Form
     {
         static SerialPort serial1 = new SerialPort();
-        public int hex;
+        public int hex = -50;
+        public int fex;
         public Form1()
         {
             InitializeComponent();
@@ -47,10 +42,10 @@ namespace Arceus
             //string y = serial1.ReadLine();
             hex += 1;
 
-            if(hex>51)
+            /*if(hex>51)
             {
                 hex = 1;
-            }
+            }*/
 
             this.BeginInvoke(new LineReceivedEvent(LineReceived), x, hex);
             this.BeginInvoke(new LineReceivedEvent1(recsv), x);
@@ -78,9 +73,9 @@ namespace Arceus
             //float x1 = float.Parse(x);
             //float y1 = float.Parse(y);
             //x3 = x1 / 10;
-           
+            
             int x2 = Convert.ToInt32(x) / 10;
-
+            fex += 1;
             if (x2 < 20)
 
             {
@@ -89,6 +84,8 @@ namespace Arceus
                 circularProgressBar1.Text = "0" + "%";
                 circularProgressBar1.SubscriptText = x;
                 chart1.Series["Force"].Points.AddY(x2);
+                chart1.ChartAreas[0].AxisX.Minimum = hex;
+                chart1.ChartAreas[0].AxisX.Maximum = hex + 50;
             }
 
 
@@ -100,8 +97,11 @@ namespace Arceus
                 circularProgressBar1.Text = x2.ToString() + "%";
                 circularProgressBar1.SubscriptText = x;
                 chart1.Series["Force"].Points.AddY(x2);
+                chart1.ChartAreas[0].AxisX.Minimum = hex;
+                chart1.ChartAreas[0].AxisX.Maximum = hex + 50;
+
             }
-            if (hex > 50)
+            /*if (hex > 50)
             {
                 
 
@@ -109,8 +109,9 @@ namespace Arceus
                 {
                     series.Points.Clear();
                 }
-
-            }
+                
+            }*/
+            fex++;
         }
 
 
