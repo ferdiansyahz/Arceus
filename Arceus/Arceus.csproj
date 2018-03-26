@@ -124,5 +124,8 @@
   <ItemGroup>
     <None Include="Resources\arc_splash.JPG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
