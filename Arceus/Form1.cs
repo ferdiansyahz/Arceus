@@ -14,6 +14,7 @@ namespace Arceus
         {
             InitializeComponent();
             getAvailablePorts();
+            
         }
 
         protected override void WndProc(ref Message m)
@@ -217,86 +218,54 @@ namespace Arceus
         private static void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             serial1.Close();
+            Application.Restart();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (serial1.IsOpen == true)
+            System.Timers.Timer timer = new System.Timers.Timer(Convert.ToDouble(textBox3.Text) * 1000);
+            try
             {
-                try
+                if (comboBox1.Text.Equals(""))
                 {
-                    if (comboBox1.Text.Equals(""))
-                    {
-                        MessageBox.Show("Select your port, please", "Port: Empty",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    else
-                    {
-                        serial1.PortName = comboBox1.Text;
-                        serial1.BaudRate = 9600;
-                        serial1.DataReceived += new SerialDataReceivedEventHandler(serial1_DataReceived);
-                        textBox1.Text = "Connected";
-                        pictureBox2.Enabled = true;
-                        pictureBox1.Enabled = false;
-                        pictureBox1.Visible = false;
-                        label3.Visible = false;
-                        pictureBox2.Visible = true;
-                        label4.Visible = true;
-
-                        System.Timers.Timer timer = new System.Timers.Timer(Convert.ToDouble(textBox3.Text)*1000);
-                        timer.Elapsed += Timer_Elapsed;
-                        timer.Start();
-                    }
-                }
-                catch (UnauthorizedAccessException)
-                {
-                    MessageBox.Show("COM already used. Disconnect your previous communication", "Dual Port Issue",
+                    MessageBox.Show("Select your port", "Port: Empty",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
-            }
-            else if (serial1.IsOpen == false)
-            {
-                try
+                else if (textBox2.Text.Equals(""))
                 {
-                    if (comboBox1.Text.Equals(""))
-                    {
-                        MessageBox.Show("Select your port", "Port: Empty",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    }
-                    else if (textBox2.Text.Equals(""))
-                    {
-                        MessageBox.Show("Name your csv file", "File: CSV",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        serial1.PortName = comboBox1.Text;
-                        serial1.BaudRate = 9600;
-                        serial1.Open();
-                        serial1.DataReceived += new SerialDataReceivedEventHandler(serial1_DataReceived);
-                        textBox1.Text = "Connected";
-                        pictureBox2.Enabled = true;
-                        pictureBox1.Enabled = false;
-                        pictureBox1.Visible = false;
-                        label3.Visible = false;
-                        pictureBox2.Visible = true;
-                        label4.Visible = true;
-
-                        System.Timers.Timer timer = new System.Timers.Timer(Convert.ToDouble(textBox3.Text)*1000);
-                        timer.Elapsed += Timer_Elapsed;
-                        timer.Start();
-                    }
-                }
-                catch (UnauthorizedAccessException)
-                {
-                    MessageBox.Show("COM already used. Disconnect your previous communication", "Dual Port Issue",
+                    MessageBox.Show("Name your csv file", "File: CSV",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    serial1.PortName = comboBox1.Text;
+                    serial1.BaudRate = 9600;
+                    serial1.Open();
+                    serial1.DataReceived += new SerialDataReceivedEventHandler(serial1_DataReceived);
+                    textBox1.Text = "Connected";
+                    pictureBox2.Enabled = true;
+                    pictureBox1.Enabled = false;
+                    pictureBox1.Visible = false;
+                    label3.Visible = false;
+                    pictureBox2.Visible = true;
+                    label4.Visible = true;
 
+
+                    timer.Elapsed += Timer_Elapsed;
+                    timer.Start();
                 }
             }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("COM already used. Disconnect your previous communication", "Dual Port Issue",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+
+
+
         }
     }
 
