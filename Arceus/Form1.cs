@@ -10,6 +10,7 @@ namespace Arceus
         static SerialPort serial1 = new SerialPort();
         public int hex = -50;
         public int fex;
+        public bool hexbool = false;
         public Form1()
         {
             InitializeComponent();
@@ -42,7 +43,17 @@ namespace Arceus
             string x = serial1.ReadLine();
             //string y = serial1.ReadLine();
             hex += 1;
-
+            if (hexbool == true)
+            {
+                if (hex == int.Parse(textBox4.Text))
+                {
+                    serial1.Close();
+                    MessageBox.Show("Done! Data has been saved", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Restart();
+                    hexbool = false;
+                }
+            }
             /*if(hex>51)
             {
                 hex = 1;
@@ -65,7 +76,7 @@ namespace Arceus
             //var newline = String.Format("{0},{1},{2},{3}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x, System.Environment.NewLine);
             var newline = String.Format("{0},{1},{2}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x);
             csvcontent.Append(newline);
-
+           
             System.IO.File.AppendAllText(csvpath, csvcontent.ToString());
         }
 
@@ -218,6 +229,8 @@ namespace Arceus
         private static void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             serial1.Close();
+            MessageBox.Show("Done! Data has been saved", "Success",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
             Application.Restart();
         }
 
@@ -237,21 +250,19 @@ namespace Arceus
                     MessageBox.Show("Name your csv file", "File: CSV",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                else if(textBox3.Text.Equals(""))
+                {
+                    MessageBox.Show("Set your timer", "Time Elapsed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 else
                 {
+                    
                     serial1.PortName = comboBox1.Text;
                     serial1.BaudRate = 9600;
                     serial1.Open();
                     serial1.DataReceived += new SerialDataReceivedEventHandler(serial1_DataReceived);
                     textBox1.Text = "Connected";
-                    pictureBox2.Enabled = true;
-                    pictureBox1.Enabled = false;
-                    pictureBox1.Visible = false;
-                    label3.Visible = false;
-                    pictureBox2.Visible = true;
-                    label4.Visible = true;
-
-
                     timer.Elapsed += Timer_Elapsed;
                     timer.Start();
                 }
@@ -262,10 +273,44 @@ namespace Arceus
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+        }
 
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBox1.Text.Equals(""))
+                {
+                    MessageBox.Show("Select your port", "Port: Empty",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                }
+                else if (textBox2.Text.Equals(""))
+                {
+                    MessageBox.Show("Name your csv file", "File: CSV",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if(textBox4.Text.Equals(""))
+                {
+                    MessageBox.Show("Set Data Elapsed", "Data Control",
+                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    serial1.PortName = comboBox1.Text;
+                    serial1.BaudRate = 9600;
+                    serial1.Open();
+                    serial1.DataReceived += new SerialDataReceivedEventHandler(serial1_DataReceived);
+                    textBox1.Text = "Connected";
+                    hexbool = true;
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("COM already used. Disconnect your previous communication", "Dual Port Issue",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-
+            }
         }
     }
 

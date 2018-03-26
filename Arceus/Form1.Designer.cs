@@ -38,7 +38,9 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,17 +58,20 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -134,6 +139,16 @@
             this.panel1.Size = new System.Drawing.Size(65, 449);
             this.panel1.TabIndex = 7;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Arceus.Properties.Resources.arc_logo_3;
+            this.pictureBox5.Location = new System.Drawing.Point(-3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(70, 71);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 16;
+            this.pictureBox5.TabStop = false;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -145,6 +160,18 @@
             this.label11.Size = new System.Drawing.Size(28, 15);
             this.label11.TabIndex = 16;
             this.label11.Text = "Exit";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::Arceus.Properties.Resources.close;
+            this.pictureBox4.Location = new System.Drawing.Point(18, 410);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 16;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // label10
             // 
@@ -295,7 +322,7 @@
             this.label12.Cursor = System.Windows.Forms.Cursors.No;
             this.label12.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(347, 59);
+            this.label12.Location = new System.Drawing.Point(235, 129);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(82, 15);
             this.label12.TabIndex = 17;
@@ -305,7 +332,7 @@
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::Arceus.Properties.Resources.redo;
-            this.pictureBox3.Location = new System.Drawing.Point(317, 54);
+            this.pictureBox3.Location = new System.Drawing.Point(205, 124);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 23);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,31 +365,9 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Arceus.Properties.Resources.arc_logo_3;
-            this.pictureBox5.Location = new System.Drawing.Point(-3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(70, 71);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 16;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::Arceus.Properties.Resources.close;
-            this.pictureBox4.Location = new System.Drawing.Point(18, 410);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(27, 23);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 16;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(317, 84);
+            this.textBox3.Location = new System.Drawing.Point(205, 149);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(112, 20);
             this.textBox3.TabIndex = 18;
@@ -373,11 +378,54 @@
             this.label13.Cursor = System.Windows.Forms.Cursors.No;
             this.label13.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.Control;
-            this.label13.Location = new System.Drawing.Point(430, 88);
+            this.label13.Location = new System.Drawing.Point(205, 172);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 15);
             this.label13.TabIndex = 19;
             this.label13.Text = "Second(s)";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Cursor = System.Windows.Forms.Cursors.No;
+            this.label14.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.Control;
+            this.label14.Location = new System.Drawing.Point(358, 171);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 15);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Data";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(360, 148);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(112, 20);
+            this.textBox4.TabIndex = 20;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Cursor = System.Windows.Forms.Cursors.No;
+            this.label15.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.Control;
+            this.label15.Location = new System.Drawing.Point(390, 129);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(109, 15);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Connect Untill Data";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.Image = global::Arceus.Properties.Resources.redo;
+            this.pictureBox6.Location = new System.Drawing.Point(360, 124);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 22;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // Form1
             // 
@@ -386,6 +434,10 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.ClientSize = new System.Drawing.Size(512, 449);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label12);
@@ -409,12 +461,13 @@
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,6 +500,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
 
