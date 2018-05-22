@@ -10,6 +10,8 @@ namespace Arceus
         static SerialPort serial1 = new SerialPort();
         public int hex = -50;
         public int fex;
+        public double timer_1 = 0;
+        public double timer_2 = 0;
         public bool hexbool = false;
         public Form1()
         {
@@ -40,53 +42,66 @@ namespace Arceus
 
         private void serial1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string x = serial1.ReadLine();
-            //string y = serial1.ReadLine();
-            hex += 1;
-            if (hexbool == true)
+            try
             {
-                if (hex == int.Parse(textBox4.Text))
+                string val = serial1.ReadLine();
+                string[] vale = val.Split(',');
+                string x = vale[0];
+                string y = vale[1];
+                //string y = serial1.ReadLine();
+                hex += 1;
+                if (hexbool == true)
                 {
-                    serial1.Close();
-                    MessageBox.Show("Done! Data has been saved", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Application.Restart();
-                    hexbool = false;
+                    if (hex == int.Parse(textBox4.Text))
+                    {
+                        serial1.Close();
+                        MessageBox.Show("Done! Data has been saved", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Application.Restart();
+                        hexbool = false;
+                    }
                 }
-            }
-            /*if(hex>51)
-            {
-                hex = 1;
-            }*/
+                /*if(hex>51)
+                {
+                    hex = 1;
+                }*/
+                timer_2 = DateTime.Now.Millisecond;
 
-            this.BeginInvoke(new LineReceivedEvent(LineReceived), x, hex);
-            this.BeginInvoke(new LineReceivedEvent1(recsv), x);
+                this.BeginInvoke(new LineReceivedEvent(LineReceived), x, y, hex);
+                this.BeginInvoke(new LineReceivedEvent1(recsv), x, y);
+            }
+            catch (TimeoutException) { }
         }
 
-        private delegate void LineReceivedEvent(string x, int hex);
-        private delegate void LineReceivedEvent1(string x);
+        private delegate void LineReceivedEvent(string x, string y, int hex);
+        private delegate void LineReceivedEvent1(string x, string y);
 
-        private void recsv(string x)
+        private void recsv(string x, string y)
         {
             StringBuilder csvcontent = new StringBuilder();
             string quer = "D:\\CSVFile\\";
             string loc = ".csv";
             string csvpath = quer + textBox2.Text + loc;
-
+            timer_2 = DateTime.Now.Millisecond;
+            //timer_2 = timer_2 - timer_1;
             //var newline = String.Format("{0},{1},{2},{3}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x, System.Environment.NewLine);
-            var newline = String.Format("{0},{1},{2}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), x);
+            var newline = String.Format("{0},{1},{2},{3},{4}", "Force", DateTime.Now.ToString("HH:mm:ss tt"), DateTime.Now.ToString("fff"),x,y);
+            //var newline = String.Format("{0},{1},{2}", "Force", timer_2, x);
             csvcontent.Append(newline);
-           
+            
+            
             System.IO.File.AppendAllText(csvpath, csvcontent.ToString());
+            
         }
 
-        private void LineReceived(string x, int hex)
+        private void LineReceived(string x, string y, int hex)
         {
             //float x1 = float.Parse(x);
             //float y1 = float.Parse(y);
             //x3 = x1 / 10;
             
-            int x2 = Convert.ToInt32(x) / 10;
+            //int x2 = Convert.ToInt32(y) / 10;
+            float x2 = float.Parse(y) / 10;
             fex += 1;
             if (x2 < 20)
 
@@ -105,7 +120,7 @@ namespace Arceus
 
             {
                 textBox1.Text = x;
-                circularProgressBar1.Value = x2;
+                //circularProgressBar1.Value = x2;
                 circularProgressBar1.Text = x2.ToString() + "%";
                 circularProgressBar1.SubscriptText = x;
                 chart1.Series["Force"].Points.AddY(x2);
@@ -236,6 +251,7 @@ namespace Arceus
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            timer_1 = DateTime.Now.Millisecond;
             System.Timers.Timer timer = new System.Timers.Timer(Convert.ToDouble(textBox3.Text) * 1000);
             try
             {
